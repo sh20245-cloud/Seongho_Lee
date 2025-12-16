@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>내 소개 페이지</title>
+  <style>
+    :root { --bg:#0b1220; --card:#111a2e; --text:#e8eefc; --muted:#aab6d6; --accent:#6ea8fe; }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0; font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      background: radial-gradient(1200px 600px at 10% 0%, #132347, transparent 60%),
+                  radial-gradient(1200px 600px at 90% 10%, #1a2f63, transparent 60%),
+                  var(--bg);
+      color: var(--text);
+    }
+    .wrap{ max-width: 920px; margin: 0 auto; padding: 40px 18px 70px; }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      backdrop-filter: blur(8px);
+    }
+    header{ display:flex; gap:18px; align-items:center; }
+    .avatar{
+      width:72px; height:72px; border-radius: 18px;
+      background: linear-gradient(135deg, #6ea8fe, #9b6efe);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800; font-size: 28px; color: #0b1220;
+      flex: 0 0 auto;
+    }
+    h1{ margin:0; font-size: 26px; }
+    .subtitle{ margin-top:6px; color: var(--muted); }
+    .grid{ display:grid; grid-template-columns: 1fr; gap: 14px; margin-top: 18px; }
+    @media (min-width: 720px){ .grid{ grid-template-columns: 1fr 1fr; } }
+    .section{
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 14px;
+      padding: 14px 14px 12px;
+      background: rgba(17,26,46,0.65);
+    }
+    .section h2{ margin:0 0 10px; font-size: 15px; color: var(--muted); letter-spacing: 0.2px; }
+    .pill{
+      display:inline-block; padding: 8px 10px; border-radius: 999px;
+      background: rgba(110,168,254,0.14); border: 1px solid rgba(110,168,254,0.35);
+      margin: 6px 6px 0 0; font-size: 13px;
+    }
+    a{ color: var(--accent); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+    .btns{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px; }
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 12px; border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+    }
+    .btn:hover{ background: rgba(255,255,255,0.10); }
+    footer{ margin-top: 14px; color: var(--muted); font-size: 12px; text-align:center; }
+    .small{ color: var(--muted); font-size: 13px; line-height: 1.6; }
+    ul{ margin: 10px 0 0 18px; color: var(--text); }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card">
+      <header>
+        <div class="avatar">홍</div>
+        <div>
+          <h1>홍길동</h1>
+          <div class="subtitle">웹페이지 과제용 · 나의 간단 소개</div>
+          <div class="btns">
+            <a class="btn" href="mailto:honggildong@email.com">📧 이메일</a>
+            <a class="btn" href="https://github.com/your-id" target="_blank" rel="noreferrer">💻 GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/in/your-id" target="_blank" rel="noreferrer">🔗 LinkedIn</a>
+          </div>
+        </div>
+      </header>
+
+      <div class="grid">
+        <section class="section">
+          <h2>한 줄 소개</h2>
+          <p class="small">
+            안녕하세요! 저는 <b>OOO에 관심이 많은</b> 홍길동입니다.
+            요즘은 <b>OOO</b>를 배우고 있고, 새로운 경험을 좋아합니다.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2>기본 정보</h2>
+          <ul>
+            <li>거주지: 서울</li>
+            <li>전공/직무(또는 관심분야): 예) 경영 / 데이터</li>
+            <li>좋아하는 것: 예) 커피, 여행, 러닝</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>내가 해본 것 (3개 정도)</h2>
+          <ul>
+            <li>예) 동아리/프로젝트: OOO 활동</li>
+            <li>예) 대외활동: OOO 서포터즈</li>
+            <li>예) 경험: OOO 행사 참여</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>기술/관심 키워드</h2>
+          <span class="pill">HTML</span>
+          <span class="pill">AI</span>
+          <span class="pill">기획</span>
+          <span class="pill">데이터</span>
+          <span class="pill">디자인</span>
+          <!-- 필요하면 pill을 더 복사해서 추가 -->
+        </section>
+      </div>
+
+      <footer>
+        마지막 업데이트: <span id="lastUpdated"></span>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // 오늘 날짜를 자동으로 표시
+    const d = new Date();
+    const yyyy = d.getFullYear();
+    const mm = String(d.getMonth() + 1).padStart(2, "0");
+    const dd = String(d.getDate()).padStart(2, "0");
+    document.getElementById("lastUpdated").textContent = `${yyyy}-${mm}-${dd}`;
+  </script>
+</body>
+</html>
